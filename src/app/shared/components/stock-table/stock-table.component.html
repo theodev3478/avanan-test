@@ -1,0 +1,24 @@
+<table class="table table-striped" [mfData]="stocks" #mf="mfDataTable">
+  <thead>
+    <tr>
+      <th></th>
+      <th><mfDefaultSorter by="symbol">Symbol</mfDefaultSorter></th>
+      <th><mfDefaultSorter by="price">Price</mfDefaultSorter></th>
+      <th><mfDefaultSorter by="size">Size</mfDefaultSorter></th>
+      <th><mfDefaultSorter by="time">Time</mfDefaultSorter></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let x of mf.data; index as idx">
+      <td>{{ idx + 1 }}</td>
+      <td>{{ x.symbol }}</td>
+      <td>{{ x.price }}</td>
+      <td>{{ x.size }}</td>
+      <td>{{ x.time | date: 'MM/dd/yyyy hh:mm:ss a' }}</td>
+      <td>
+        <button class="btn btn-danger btn-sm" (click)="onRemove(idx)"><i class="fa fa-trash"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>

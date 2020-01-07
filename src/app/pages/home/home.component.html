@@ -1,0 +1,13 @@
+<div class="home-page container">
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="form" (submit)="onSearch($event)" class="search-form">
+        <input type="text" class="form-control d-inline-block input-search" formControlName="stock" />
+        <button class="btn btn-primary" [disabled]="form.invalid"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+  <div class="row table-row">
+    <app-stock-table [stocks]="stocks" (stocksChange)="onStocksChange($event)" class="col-12"></app-stock-table>
+  </div>
+</div>
